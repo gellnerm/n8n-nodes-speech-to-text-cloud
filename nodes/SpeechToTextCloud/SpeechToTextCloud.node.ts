@@ -21,7 +21,7 @@ export class SpeechToTextCloud implements INodeType {
       baseURL: 'https://www.speech-to-text.cloud/athanis/api/v1',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        // Content-Type is automatically set by n8n for multipart/form-data requests
       },
     },
     properties: [

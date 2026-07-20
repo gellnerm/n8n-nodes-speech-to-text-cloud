@@ -31,8 +31,11 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ## Usage
 
 ### Transcribing Audio
-1. Use the **Transcribe** operation and provide a publicly accessible URL to your audio file.
-2. The node returns a `job_id`. Store this for subsequent steps.
+1. **Download the file**: Use an **HTTP Request** node to fetch your audio from a URL. Set the `Response Format` to `File`.
+2. **Connect to Transcribe**: Drag the output from the HTTP Request node into the **Speech To Text Cloud** node's **Audio File** parameter.
+3. **Run**: The node will upload the binary data as `multipart/form-data` and return a `job_id`.
+
+> 💡 **Note**: Unlike Zapier/Make which fetch URLs internally, n8n expects binary data to be passed upstream. This keeps workflows transparent and allows you to add caching, retry logic, or file validation steps before transcription.
 
 ### Getting Results & Polling
 The **Get Result** operation returns the current status and transcript. Since n8n declarative nodes don't include built-in polling loops, wrap it in a simple workflow loop:

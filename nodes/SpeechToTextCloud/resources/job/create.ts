@@ -4,17 +4,17 @@ const showOnlyForJobCreate = { operation: ['create'], resource: ['job'] };
 
 export const jobCreateDescription: INodeProperties[] = [
   {
-    displayName: 'Audio File URL',
-    name: 'audioFileUrl',
-    type: 'string',
+    displayName: 'Audio File',
+    name: 'audio_file',
+    type: 'binary',
     default: '',
     required: true,
     displayOptions: { show: showOnlyForJobCreate },
-    description: 'Direct URL to the audio/video file (MP3, WAV, OGG, MP4, etc.)',
+    description: 'Binary data of the audio/video file. Connect an HTTP Request node (Response Format: File) here.',
     routing: {
       send: {
-        type: 'body',
-        property: 'audio_file',
+        type: 'formData',
+        property: 'audio_file', // Matches the binary property name in the input data
       },
     },
   },
@@ -27,7 +27,7 @@ export const jobCreateDescription: INodeProperties[] = [
     description: 'e.g., en, de, fr, es. Leave blank for auto-detection.',
     routing: {
       send: {
-        type: 'body',
+        type: 'query',
         property: 'lang',
       },
     },
