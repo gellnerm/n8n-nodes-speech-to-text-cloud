@@ -18,7 +18,7 @@ export const jobCreateDescription: INodeProperties[] = [
     type: 'string',
     default: 'yyy',
     displayOptions: { show: showOnlyForJobCreate },
-    description: 'e.g., en, de, fr, es. Leave as "yyy" for auto-detection.',
+    description: 'E.g., en, de, fr, es. Leave as "yyy" for auto-detection.',
     routing: {
       send: {
         type: 'query',

@@ -10,7 +10,7 @@ export const jobGetDescription: INodeProperties[] = [
     default: '',
     required: true,
     displayOptions: { show: showOnlyForJobGet },
-    description: 'Job ID returned by the Transcribe action.',
+    description: 'Job ID returned by the Transcribe action',
   },
   {
     displayName: 'Output Format',

@@ -10,12 +10,13 @@ export const jobApplyTaskDescription: INodeProperties[] = [
     default: '',
     required: true,
     displayOptions: { show: showOnlyForJobApplyTask },
-    description: 'Job ID returned by the Transcribe action.',
+    description: 'Job ID returned by the Transcribe action',
   },
   {
     displayName: 'Task Type',
     name: 'task',
     type: 'options',
+				default: 'cleanup',
     required: true,
     options: [
       { name: 'Cleanup', value: 'cleanup' },
@@ -37,7 +38,7 @@ export const jobApplyTaskDescription: INodeProperties[] = [
     type: 'string',
     default: '',
     displayOptions: { show: showOnlyForJobApplyTask },
-    description: 'e.g., de, fr, es. Required if task is translate.',
+    description: 'E.g., de, fr, es. Required if task is translate.',
     routing: {
       send: { type: 'query', property: 'lang' },
     },
