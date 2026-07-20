@@ -1,14 +1,24 @@
 {
   "name": "n8n-nodes-speech-to-text-cloud",
   "version": "0.1.0",
-  "description": "",
+  "description": "n8n community node to integrate with Online Speech to Text Cloud API for audio transcription and text transformations.",
   "license": "MIT",
-  "homepage": "",
-  "keywords": ["n8n-community-node-package"],
-  "author": { "name": "", "email": "" },
+  "homepage": "https://www.speech-to-text.cloud/",
+  "keywords": [
+    "n8n-community-node-package",
+    "speech-to-text",
+    "transcription",
+    "ai",
+    "audio",
+    "voice-to-text"
+  ],
+  "author": {
+    "name": "Martin Gellner",
+    "email": "support@speech-to-text.cloud"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/gellnerm/n8n-nodes-speech-to-text-cloud.git"
   },
   "scripts": {
     "build": "n8n-node build",
@@ -23,8 +33,12 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "strict": true,
-    "credentials": ["dist/credentials/SpeechToTextCloudApi.credentials.js"],
-    "nodes": ["dist/nodes/SpeechToTextCloud/SpeechToTextCloud.node.js"]
+    "credentials": [
+      "dist/credentials/SpeechToTextCloudApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/SpeechToTextCloud/SpeechToTextCloud.node.js"
+    ]
   },
   "devDependencies": {
     "@n8n/node-cli": "*",
@@ -33,5 +47,7 @@
     "release-it": "^19.0.4",
     "typescript": "5.9.2"
   },
-  "peerDependencies": { "n8n-workflow": "*" }
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }
