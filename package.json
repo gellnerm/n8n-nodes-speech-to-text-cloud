@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-speech-to-text-cloud",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publishConfig": {
     "access": "public",
     "provenance": true
