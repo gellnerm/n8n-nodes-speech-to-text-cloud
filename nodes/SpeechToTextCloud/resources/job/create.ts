@@ -22,7 +22,7 @@ export const jobCreateDescription: INodeProperties[] = [
     displayName: 'Language Code (Optional)',
     name: 'language',
     type: 'string',
-    default: '',
+    default: 'yyy',
     displayOptions: { show: showOnlyForJobCreate },
     description: 'e.g., en, de, fr, es. Leave blank for auto-detection.',
     routing: {
