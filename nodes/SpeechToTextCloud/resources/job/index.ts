@@ -33,23 +33,34 @@ export const jobDescription: INodeProperties[] = [
                 const binaryData = this.helpers.assertBinaryData(binaryPropertyName);
                 const dataBuffer = await this.helpers.getBinaryDataBuffer(binaryPropertyName);
                 
-                // Create form data object for multipart upload
-                const body: IDataObject = {};
-                body['audio_file'] = {
-                  value: dataBuffer,
-                  options: {
-                    filename: binaryData.fileName,
-                    contentType: binaryData.mimeType || 'audio/mpeg',
-                  },
-                };
+                // Generate a boundary for multipart
+                const boundary = `----WebKitFormBoundary${Math.random().toString(36).substring(2, 15)}`;
                 
-                // Set headers
+                // Construct multipart body manually
+                const parts: Buffer[] = [];
+                
+                // Add audio_file field
+                parts.push(Buffer.from(`--${boundary}\r\n`));
+                parts.push(Buffer.from(
+                  `Content-Disposition: form-data; name="audio_file"; filename="${binaryData.fileName}"\r\n` +
+                  `Content-Type: ${binaryData.mimeType || 'audio/mpeg'}\r\n\r\n`
+                ));
+                parts.push(dataBuffer);
+                parts.push(Buffer.from('\r\n'));
+                
+                // Add closing boundary
+                parts.push(Buffer.from(`--${boundary}--\r\n`));
+                
+                // Combine all parts
+                const body = Buffer.concat(parts);
+                
+                // Set headers with boundary
                 if (!requestOptions.headers) requestOptions.headers = {};
-                requestOptions.headers['Content-Type'] = 'multipart/form-data';
+                requestOptions.headers['Content-Type'] = `multipart/form-data; boundary=${boundary}`;
+                requestOptions.headers['Content-Length'] = body.length.toString();
                 
-                // Set body as formData
-                (requestOptions as unknown as IDataObject).formData = body;
-                delete requestOptions.body;
+                // Set body
+                requestOptions.body = body;
                 
                 return requestOptions;
               },
