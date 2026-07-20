@@ -18,13 +18,13 @@ export const jobApplyTaskDescription: INodeProperties[] = [
     type: 'options',
     required: true,
     options: [
-      { name: 'Summarize', value: 'summarize' },
-      { name: 'Translate', value: 'translate' },
-      { name: 'Diarize', value: 'diarize' },
       { name: 'Cleanup', value: 'cleanup' },
-      { name: 'Extract Key Points', value: 'keypoints' },
       { name: 'Compliance Check', value: 'compliance' },
       { name: 'Convert to CSV', value: 'csv' },
+      { name: 'Diarize', value: 'diarize' },
+      { name: 'Extract Key Points', value: 'keypoints' },
+      { name: 'Summarize', value: 'summarize' },
+      { name: 'Translate', value: 'translate' },
     ],
     displayOptions: { show: showOnlyForJobApplyTask },
     routing: {

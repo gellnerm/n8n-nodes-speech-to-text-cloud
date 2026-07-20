@@ -9,6 +9,7 @@ export class SpeechToTextCloudApi implements ICredentialType {
   name = 'speechToTextCloudApi';
   displayName = 'Speech To Text Cloud API';
   documentationUrl = 'https://github.com/gellnerm/n8n-nodes-speech-to-text-cloud#credentials';
+  icon = { light: 'file:speechToTextCloud.svg', dark: 'file:speechToTextCloud.dark.svg' };
 
   properties: INodeProperties[] = [
     {
@@ -34,7 +35,7 @@ export class SpeechToTextCloudApi implements ICredentialType {
   test: ICredentialTestRequest = {
     request: {
       baseURL: 'https://www.speech-to-text.cloud/athanis/api/v1',
-      url: '/api_jobs/00000000-0000-4000-8000-000000000000',
+      url: '/api_jobs/00000000-0000-0000-0000-000000000000',
       method: 'POST',
       body: {},
     },
