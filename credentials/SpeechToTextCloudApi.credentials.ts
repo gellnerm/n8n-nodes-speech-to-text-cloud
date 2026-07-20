@@ -3,13 +3,14 @@ import type {
   ICredentialTestRequest,
   ICredentialType,
   INodeProperties,
+  Icon,
 } from 'n8n-workflow';
 
 export class SpeechToTextCloudApi implements ICredentialType {
   name = 'speechToTextCloudApi';
   displayName = 'Speech To Text Cloud API';
   documentationUrl = 'https://github.com/gellnerm/n8n-nodes-speech-to-text-cloud#credentials';
-  icon = { light: 'file:speechToTextCloud.svg', dark: 'file:speechToTextCloud.dark.svg' };
+  icon: Icon = { light: 'file:speechToTextCloud.svg', dark: 'file:speechToTextCloud.dark.svg' };
 
   properties: INodeProperties[] = [
     {

@@ -6,15 +6,15 @@ export const jobCreateDescription: INodeProperties[] = [
   {
     displayName: 'Audio File',
     name: 'audio_file',
-    type: 'binary',
+    type: 'string',
     default: '',
     required: true,
     displayOptions: { show: showOnlyForJobCreate },
     description: 'Binary data of the audio/video file. Connect an HTTP Request node (Response Format: File) here.',
     routing: {
       send: {
-        type: 'formData',
-        property: 'audio_file', // Matches the binary property name in the input data
+        type: 'body', // n8n auto-switches to multipart/form-data when binary data is present
+        property: 'audio_file',
       },
     },
   },
