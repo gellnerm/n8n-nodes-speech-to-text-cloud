@@ -1,4 +1,4 @@
-import type { INodeProperties, IDataObject } from 'n8n-workflow';
+import type { INodeProperties } from 'n8n-workflow';
 import { jobCreateDescription } from './create';
 import { jobGetDescription } from './get';
 import { jobApplyTaskDescription } from './applyTask';
