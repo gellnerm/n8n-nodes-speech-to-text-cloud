@@ -2,7 +2,8 @@
   "name": "n8n-nodes-speech-to-text-cloud",
   "version": "1.0.3",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "n8n community node to integrate with Online Speech to Text Cloud API for audio transcription and text transformations.",
   "license": "MIT",
@@ -29,7 +30,8 @@
     "dev": "n8n-node dev",
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
-    "release": "n8n-node release"
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
     "dist"
