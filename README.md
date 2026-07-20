@@ -92,4 +92,3 @@ Use **Apply Task** to run transformations on an existing completed job:
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
 - [Online Speech To Text Cloud API Docs](https://www.speech-to-text.cloud/api-documentation/)
 - [Pricing & Plans](https://www.speech-to-text.cloud/pricing/)
-
