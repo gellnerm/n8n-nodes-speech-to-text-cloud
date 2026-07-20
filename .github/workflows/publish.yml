@@ -84,6 +84,23 @@ jobs:
       - name: Install dependencies
         run: 'npm ci'
 
+      - name: Debug npm auth
+        run: |
+          echo "NPM_TOKEN secret set in environment: ${NPM_TOKEN:+yes}"
+          # whoami will succeed if authenticated (via OIDC or token)
+          if npm whoami >/dev/null 2>&1; then
+            echo "npm whoami: $(npm whoami)"
+          else
+            echo "npm whoami failed — not authenticated"
+          fi
+          # show .npmrc lines (token masked by Actions), useful to confirm config was written
+          echo "---- ~/.npmrc ----"
+          sed -n '1,200p' ~/.npmrc || echo "~/.npmrc not present"
+          echo "---- project .npmrc ----"
+          sed -n '1,200p' .npmrc || echo "project .npmrc not present"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
       - name: Release
         # Publishes to npm with a provenance attestation (requires id-token: write above).
         # Lint and build run automatically as part of the release process.
@@ -96,4 +113,4 @@ jobs:
           [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
           npm run release
         env:
-          NPM_TOKEN: $NPM_TOKEN
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
