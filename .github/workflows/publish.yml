@@ -78,6 +78,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
+          registry-url: 'https://registry.npmjs.org/'
           node-version: 'lts/*'
           cache: 'npm'
 
@@ -91,7 +92,7 @@ jobs:
           if npm whoami >/dev/null 2>&1; then
             echo "npm whoami: $(npm whoami)"
           else
-            echo "npm whoami failed — not authenticated"
+            echo "npm whoami failed - not authenticated"
           fi
           # show .npmrc lines (token masked by Actions), useful to confirm config was written
           echo "---- ~/.npmrc ----"
