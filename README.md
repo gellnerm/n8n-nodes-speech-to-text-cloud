@@ -31,9 +31,11 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ## Usage
 
 ### Transcribing Audio
-1. **Download the file**: Use an **HTTP Request** node to fetch your audio from a URL. Set the `Response Format` to `File`.
-2. **Connect to Transcribe**: Drag the output from the HTTP Request node into the **Speech To Text Cloud** node's **Audio File** parameter.
-3. **Run**: The node will upload the binary data as `multipart/form-data` and return a `job_id`.
+1. **Download the file**: Use an **HTTP Request** node to fetch your audio from a URL. Set `Response Format` to `File`.
+2. **Pass Binary Property Name**: Connect to this node's **Audio File** parameter. Enter the name of the binary property from the previous step (usually `data`).
+3. **Language (Optional)**: Provide a 2-letter code (e.g., `en`, `de`). Leave as `yyy` for auto-detection.
+
+> 💡 **Why a string field?** n8n's declarative routing requires the binary property name as a string reference. n8n automatically resolves it to the actual binary buffer and sends it as `multipart/form-data`.
 
 > 💡 **Note**: Unlike Zapier/Make which fetch URLs internally, n8n expects binary data to be passed upstream. This keeps workflows transparent and allows you to add caching, retry logic, or file validation steps before transcription.
 
