@@ -36,7 +36,7 @@ export const jobApplyTaskDescription: INodeProperties[] = [
     displayName: 'Target Language',
     name: 'lang',
     type: 'string',
-    default: '',
+    default: 'yyy',
     displayOptions: { show: showOnlyForJobApplyTask },
     description: 'E.g., de, fr, es. Required if task is translate.',
     routing: {
