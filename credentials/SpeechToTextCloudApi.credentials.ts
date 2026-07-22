@@ -36,7 +36,7 @@ export class SpeechToTextCloudApi implements ICredentialType {
   test: ICredentialTestRequest = {
     request: {
       baseURL: 'https://www.speech-to-text.cloud/athanis/api/v1',
-      url: '/api_jobs/00000000-0000-0000-0000-000000000000',
+      url: '/api_jobs/00000000-0000-4000-8000-000000000000',
       method: 'POST',
       body: {},
     },
